@@ -1,4 +1,4 @@
-﻿// Copyright 2018 Jeremy Cowles. All rights reserved.
+// Copyright 2018 Jeremy Cowles. All rights reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -14,13 +14,13 @@
 
 using UnityEngine;
 using UnityEditor;
-using UnityEditor.Experimental.AssetImporters;
+
 using USD.NET;
 
 namespace Unity.Formats.USD {
 
   [CustomEditor(typeof(UsdLayerStack))]
-  public class UsdLayerStackEditor : ScriptedImporterEditor {
+  public class UsdLayerStackEditor : Editor {
     public override void OnInspectorGUI() {
       var layerStack = (UsdLayerStack)this.target;
 
