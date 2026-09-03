@@ -215,7 +215,7 @@ namespace Unity.Formats.USD {
     /// need to be instanced to keep the duplicated object from sharing the underlying assets.
     /// </summary>
     [SerializeField, HideInInspector]
-    private int m_instanceId = 0;
+    private EntityId m_instanceId = EntityId.None;
 
     /// <summary>
     /// Returns the underlying prefab object, or null.
@@ -237,12 +237,12 @@ namespace Unity.Formats.USD {
     void Awake() {
       if (IsPrefabInstance(gameObject)) { return; }
 
-      if (m_instanceId != GetInstanceID()) {
-        if (m_instanceId == 0) {
-          m_instanceId = GetInstanceID();
+      if (m_instanceId != GetEntityId()) {
+        if (!m_instanceId.IsValid()) {
+          m_instanceId = GetEntityId();
         } else {
-          m_instanceId = GetInstanceID();
-          if (m_instanceId < 0) {
+          m_instanceId = GetEntityId();
+          if (m_instanceId < EntityId.None) {
             Debug.Log("Reimporting " + name + " after duplicate");
             Reload(true);
           }

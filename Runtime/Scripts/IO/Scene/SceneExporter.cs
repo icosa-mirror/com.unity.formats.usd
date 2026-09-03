@@ -475,7 +475,7 @@ namespace Unity.Formats.USD {
       if (smr != null) {
         foreach (var mat in smr.sharedMaterials) {
           if (!context.matMap.ContainsKey(mat)) {
-            string usdPath = materialBasePath + pxr.UsdCs.TfMakeValidIdentifier(mat.name + "_" + mat.GetInstanceID().ToString());
+            string usdPath = materialBasePath + pxr.UsdCs.TfMakeValidIdentifier(mat.name + "_" + mat.GetEntityId().ToString());
             context.matMap.Add(mat, usdPath);
           }
         }
@@ -500,7 +500,7 @@ namespace Unity.Formats.USD {
             continue;
           }
           if (!context.matMap.ContainsKey(mat)) {
-            string usdPath = materialBasePath + pxr.UsdCs.TfMakeValidIdentifier(mat.name + "_" + mat.GetInstanceID().ToString());
+            string usdPath = materialBasePath + pxr.UsdCs.TfMakeValidIdentifier(mat.name + "_" + mat.GetEntityId().ToString());
             context.matMap.Add(mat, usdPath);
           }
         }

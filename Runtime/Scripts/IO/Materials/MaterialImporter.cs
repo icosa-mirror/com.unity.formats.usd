@@ -276,7 +276,7 @@ namespace Unity.Formats.USD {
       RenderTexture.ReleaseTemporary(tmp);
 
 #if UNITY_EDITOR
-      var assetPath = UnityEditor.AssetDatabase.GetAssetPath(baseTex.GetInstanceID());
+      var assetPath = UnityEditor.AssetDatabase.GetAssetPath(baseTex.GetEntityId());
 
       var bytes = newTex.EncodeToPNG();
       var newAssetPath = Path.ChangeExtension(assetPath, fileNameSuffix + ".png");
