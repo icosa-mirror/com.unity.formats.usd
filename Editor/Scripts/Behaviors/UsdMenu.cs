@@ -367,7 +367,7 @@ namespace Unity.Formats.USD {
     public static string GetSelectedAssetPath() {
       Object[] selectedAsset = Selection.GetFiltered(typeof(Object), SelectionMode.Assets);
       foreach (Object obj in selectedAsset) {
-        var path = AssetDatabase.GetAssetPath(obj.GetInstanceID());
+        var path = AssetDatabase.GetAssetPath(obj.GetEntityId());
         if (string.IsNullOrEmpty(path)) {
           continue;
         }
